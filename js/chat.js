@@ -1,6 +1,6 @@
 // GPT Functional
-let gpt_query = document.getElementById('gpt_query');
-let form = document.querySelector('.gpt__query');
+let gpt_query = document.getElementById('gpt_input');
+let form = document.querySelector('.gpt__form');
 let error = document.querySelector('.gpt__error');
 let chat_window = document.querySelector('.gpt__chat');
 let key = '';
@@ -23,7 +23,7 @@ form.addEventListener("submit", async (e) => {
         error.classList.remove('gpt__error_active');
 
         chat_window.innerHTML += `
-            <div class="gpt__message gpt__message_user grid grid-row js-e jc-e ai-c">
+            <div data-aos="fade-left" class="gpt__message gpt__message_user grid grid-row js-e jc-e ai-c">
                 <p class="gpt-message__inner h7 w-200 ta-e">
                     ${message}
                 </p>
@@ -46,15 +46,24 @@ form.addEventListener("submit", async (e) => {
         });
 
         results = await results.json();
+
         if(results.success){
+            let unique_animation_id = `${Math.round(Math.random() * 9999999999999) + 10000}`;
             chat_window.innerHTML += `
-                <div class="gpt__message gpt__message_bot grid grid-row jc-s ai-c">
+                <div data-aos="fade-right" class="gpt__message gpt__message_bot grid grid-row js-s jc-s ai-c">
                     <img src="img/icons/gigachat.png" alt="GPT">
-                    <p class="gpt-message__inner h7 w-200"></p>
+                    <p data-gsap="${unique_animation_id}" class="gpt-message__inner h7 w-200"></p>
                 </div>
             `;
+
             let msgs = document.querySelectorAll('.gpt-message__inner');
-            msgs[msgs.length - 1].textContent = results.message;
+            gsap.to(`.gpt-message__inner[data-gsap="${unique_animation_id}"]`, {
+                duration: results.message.length / 50,
+                text: results.message,
+                ease: "none",
+                delay: 0.3
+            });
+
             key = results.key;
 
             history.push({

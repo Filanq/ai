@@ -1,15 +1,28 @@
-<!doctype html>
+<!-- Fullstack by Filan -->
+<!-- VK: @fiian -->
+<!-- TG: @ffilann -->
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--  Scripts  -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/gsap-scroll-trigger-plugin.min.js"></script>
+    <script src="js/gsap-text-plugin.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script defer src="js/aos.min.js"></script>
     <script defer src="js/ai-swiper.js"></script>
     <script defer src="js/animation.js"></script>
     <script defer src="js/chat.js"></script>
     <script defer src="js/menu.js"></script>
+    <script defer src="js/banner-numbers.js"></script>
+    <script defer src="js/faq-accordion.js"></script>
     <!--  Styles  -->
+    <link rel="stylesheet" href="css/aos.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="css/style.css">
     <!--  Favicon  -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -18,12 +31,364 @@
 <body>
     <!--  Header  -->
     <header>
-
+        <div class="section menu__section">
+            <div class="container menu__container ai-c grid-row ji-s">
+                <a href="#main" class="menu-logo__link">
+                    <img src="img/logo/logo.png" alt="AI" class="menu-logo__img">
+                </a>
+                <nav class="menu__nav grid grid-row gap-25 jc-sb ai-c width-100">
+                    <div class="menu-nav__inner grid grid-row gap-25 ai-c jc-s">
+                        <a href="#ai" class="menu__link link">ИИ</a>
+                        <a href="#possibilities" class="menu__link link">Возможности</a>
+                        <a href="#examples" class="menu__link link">Примеры</a>
+                        <a href="#tutorial" class="menu__link link">Пользование</a>
+                        <a href="#faq" class="menu__link link">FAQ</a>
+                    </div>
+                    <button class="gpt-open btn btn-main">Пользоваться GPT</button>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <!--  Main  -->
     <main>
+        <!--    Banner    -->
+        <section id="main" class="section banner__section">
+            <div class="container banner__container gap-25">
+                <span class="banner__span grid grid-row ai-c jc-s gap-10">
+                    <span class="banner-span__title h7">AI</span>
+                    <span class="banner-span__text h7 grid grid-row gap-10 ai-c jc-s">Искусственный интеллект сегодня <img src="img/icons/rarr.png" alt="Right Arrow"></span>
+                </span>
+                <h1 class="h1 banner__title w-700 text-gradient-grey ta-c mb-10"></h1>
+                <p class="banner__text ta-c h6 w-200 color-grey">
+                    ИИ — это не просто научная фантастика, а реальная технология, которая влияет на здоровье, безопасность, экономику и наше ежедневное поведение.
+                </p>
+                <div class="banner__buttons grid grid-row gap-25 ai-c jc-s">
+                    <a href="#possibilities" class="btn btn-white banner__btn">Возможности</a>
+                    <a href="#examples" class="btn btn-transparent banner__btn">
+                        <svg class="banner-btn__img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99807 8.42769L15.4903 11.5661C15.73 11.7031 15.8133 12.0085 15.6763 12.2483C15.632 12.3258 15.5678 12.3901 15.4903 12.4343L9.99807 15.5728C9.75831 15.7098 9.45288 15.6265 9.31588 15.3867C9.27271 15.3112 9.25 15.2257 9.25 15.1386V8.86182C9.25 8.58567 9.47386 8.36182 9.75 8.36182C9.83701 8.36182 9.92252 8.38452 9.99807 8.42769Z" fill="white"/>
+                        </svg>
+                        Сферы применения ИИ
+                    </a>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150" class="banner__numbers grid grid-row gap-25 jc-s ai-c">
+                    <div class="banner__number grid grid-column gap-10 ji-s ac-s">
+                        <p class="banner-number__title grid grid-row ai-c h2 w-600">
+                            <span class="txt-inherit">99.8</span>
+                            <span class="txt-inherit">+</span>
+                        </p>
+                        <p class="banner-number__text h7 w-200 color-grey">
+                            Пользователей ИИ
+                        </p>
+                    </div>
+                    <div class="banner__number grid grid-column gap-10 ji-s ac-s">
+                        <p class="banner-number__title grid grid-row ai-c h2 w-600">
+                            <span class="txt-inherit">50</span>
+                            <span class="txt-inherit">k+</span>
+                        </p>
+                        <p class="banner-number__text h7 w-200 color-grey">
+                            Запросов в день
+                        </p>
+                    </div>
+                </div>
 
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150" class="banner__window grid grid-row gap-25 jc-s ai-s">
+                    <img src="img/icons/ai.svg" alt="ai" class="banner-window__img">
+                    <div class="banner-window__inner grid grid-column gap-10 ac-s">
+                        <div class="banner-window__title h3 w-600 width-100">Open AI</div>
+                        <p class="banner-window__text h7 w-200 color-grey-dark width-100">
+                            Как ИИ уже меняет наш мир и что нас ждёт завтра?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--    AI    -->
+        <section id="ai" class="section ai__section">
+            <div class="container ai__container gap-50">
+                <div class="ai__head grid grid-row jc-sb width-100 gap-50 ai-e">
+                    <h2 class="h1 ai__title w-700 text-gradient-grey">Список <br> популярных сервисов</h2>
+                    <div class="ai__buttons grid grid-row gap-10 ai-c jc-s">
+                        <button class="btn ai__btn btn-main ai-button-prev" disabled>
+                            <svg class="ai-btn__img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.0012 3L7 12.0021L17.0012 21.0042" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="btn ai__btn btn-main ai-button-next">
+                            <svg class="ai-btn__img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 3L17.0012 12.0021L7 21.0042" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="ai__inner grid grid-row gap-10 ai-c jc-s swiper width-100">
+                    <div class="swiper-wrapper width-100">
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                        <div class="swiper-slide ai__card grid grid-row jc-c ai-c h1">ChatGPT</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--    Possibilities    -->
+        <section id="possibilities" class="section possibilities__section">
+            <div class="container possibilities__container">
+                <div class="possibilities__inner grid">
+                    <div id="gsap__card-1" class="possibilities__card possibilities__card_bg grid grid-column ac-c ji-s gap-10">
+                        <img src="img/icons/image.png" alt="Image" class="possibilities-card__img">
+                        <h3 class="h3 possibilities-card__title w-600">Генерация изображений</h3>
+                        <p class="possibilities-card__text w-200 color-grey-dark h6">
+                            Искусственный интеллект способен на генерацию изображений на разные темы по запросу пользователя.
+                        </p>
+                    </div>
+                    <div id="gsap__card-2" class="possibilities__card possibilities__card_none grid grid-column ac-s ji-s gap-10">
+                        <h2 class="possibilities-card__title h1 w-700 text-gradient-grey">
+                            Откройте для себя мир новых технологий
+                        </h2>
+                    </div>
+                    <div id="gsap__card-3" class="possibilities__card possibilities__card_none grid grid-column ac-e ji-s gap-10">
+                        <p class="possibilities-card__text h6 w-200 color-grey-dark">
+                            ИИ используется для улучшения медицинской диагностики, создания более комфортной жизни и еще в более 50 сферах. Откройте для себя мир, где технологии и человеческий интеллект сливаются в одну мощную силу.
+                        </p>
+                    </div>
+                    <div id="gsap__card-4" class="possibilities__card grid grid-column ac-c ji-s gap-10">
+                        <img src="img/icons/image.png" alt="Image" class="possibilities-card__img">
+                        <h3 class="h3 possibilities-card__title w-600">Генерация изображений</h3>
+                        <p class="possibilities-card__text w-200 color-grey-dark h6">
+                            Искусственный интеллект способен на генерацию изображений на разные темы по запросу пользователя.
+                        </p>
+                    </div>
+                    <div id="gsap__card-5" class="possibilities__card possibilities__card_bg grid grid-column ac-c ji-s gap-10">
+                        <img src="img/icons/image.png" alt="Image" class="possibilities-card__img">
+                        <h3 class="h3 possibilities-card__title w-600">Генерация изображений</h3>
+                        <p class="possibilities-card__text w-200 color-grey-dark h6">
+                            Искусственный интеллект способен на генерацию изображений на разные темы по запросу пользователя.
+                        </p>
+                    </div>
+                    <div id="gsap__card-6" class="possibilities__card grid grid-column ac-c ji-s gap-10">
+                        <img src="img/icons/image.png" alt="Image" class="possibilities-card__img">
+                        <h3 class="h3 possibilities-card__title w-600">Генерация изображений</h3>
+                        <p class="possibilities-card__text w-200 color-grey-dark h6">
+                            Искусственный интеллект способен на генерацию изображений на разные темы по запросу пользователя.
+                        </p>
+                    </div>
+                    <div id="gsap__card-7" class="possibilities__card possibilities__card_blank"></div>
+                    <div id="gsap__card-8" class="possibilities__card grid grid-column ac-c ji-s gap-10">
+                        <img src="img/icons/image.png" alt="Image" class="possibilities-card__img">
+                        <h3 class="h3 possibilities-card__title w-600">Генерация изображений</h3>
+                        <p class="possibilities-card__text w-200 color-grey-dark h6">
+                            Искусственный интеллект способен на генерацию изображений на разные темы по запросу пользователя.
+                        </p>
+                    </div>
+                    <div id="gsap__card-9" class="possibilities__card possibilities__card_blank"></div>
+                </div>
+            </div>
+        </section>
+
+        <!--    Examples    -->
+        <section id="examples" class="section examples__section gap-50">
+            <div class="container examples__container gap-50">
+                <h2 class="h1 text-gradient-grey examples__title w-700 js-s">Сферы применения ИИ</h2>
+            </div>
+            <div class="examples__inner grid grid-column width-100 gap-25">
+                <div id="examples__wrap-1" class="examples__wrap grid examples__wrap_2-1-2 gap-10">
+                    <div style="background-image: url('img/examples/1.jpg')" class="examples__card grid grid-column ac-e ji-e">
+                        <h3 class="h4 examples-card__title examples-card__title_80 w-600 ta-e">Навигация</h3>
+                    </div>
+                    <div style="background-image: url('img/examples/2.jpg')" class="examples__card grid grid-column ac-e ji-с">
+                        <h3 class="h4 examples-card__title w-600 ta-c">Автотранспорт</h3>
+                    </div>
+                    <div style="background-image: url('img/examples/3.jpg')" class="examples__card grid grid-column ac-e ji-s">
+                        <h3 class="h4 examples-card__title w-600 ta-s examples-card__title_80">Умный дом</h3>
+                    </div>
+                </div>
+                <div id="examples__wrap-2" class="examples__wrap grid examples__wrap_1-2-1 gap-10">
+                    <div style="background-image: url('img/examples/4.jpg')" class="examples__card grid grid-column ac-e ji-e">
+                        <h3 class="h4 examples-card__title examples-card__title_60 w-600 ta-e">Медицина</h3>
+                    </div>
+                    <div style="background-image: url('img/examples/5.png')" class="examples__card grid grid-column ac-e ji-с">
+                        <h3 class="h4 examples-card__title w-600 ta-c">Виртуальный помощник</h3>
+                    </div>
+                    <div style="background-image: url('img/examples/6.jpg')" class="examples__card grid grid-column ac-e ji-s">
+                        <h3 class="h4 examples-card__title w-600 ta-s examples-card__title_60">Образование</h3>
+                    </div>
+                </div>
+                <div id="examples__wrap-3" class="examples__wrap grid examples__wrap_2-1-2 gap-10">
+                    <div style="background-image: url('img/examples/7.jpg')" class="examples__card grid grid-column ac-e ji-e">
+                        <h3 class="h4 examples-card__title examples-card__title_80 w-600 ta-e">Робототехника</h3>
+                    </div>
+                    <div style="background-image: url('img/examples/8.jpg')" class="examples__card grid grid-column ac-e ji-с">
+                        <h3 class="h4 examples-card__title w-600 ta-c">Игровая индустрия</h3>
+                    </div>
+                    <div style="background-image: url('img/examples/9.jpg')" class="examples__card grid grid-column ac-e ji-s">
+                        <h3 class="h4 examples-card__title w-600 ta-s examples-card__title_80">Сельская промышленность</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--    Tutorial    -->
+        <section id="tutorial" class="section tutorial__section">
+            <div class="container tutorial__section">
+                <div class="tutorial__head grid grid-row width-100 gap-50 jc-sb ai-s">
+                    <h2 class="h1 text-gradient-grey tutorial__title w-700">Как пользоваться искусственным интеллектом?</h2>
+                    <p class="tutorial__text w-200 h6 color-grey-dark">
+                        Откройте для себя новые возможности вместе с современными
+                        технологиями, использующими искусственный интеллект.
+                        Создавайте музыку, свои дизайнерские решения, откройте себя с творческой стороны!
+                    </p>
+                </div>
+                <div class="tutorial__inner grid grid-column gap-25 ac-s ji-s">
+                    <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="500" class="tutorial__card grid gap-25">
+                        <div class="tutorial-card__item grid grid-column gap-10 ac-s ji-s">
+                            <span class="tutorial__number h5 ta-c grid grid-row jc-c ai-c">1</span>
+                            <span class="h3 tutorial__title w-600">Телеграмм боты</span>
+                        </div>
+                        <div class="tutorial-card__item tutorial-card__item_img grid-row grid gap-10 ai-c ji-c">
+                            <img src="img/icons/tg.png" alt="Телеграмм" class="tutorial-card__img">
+                            <span class="h2 tutorial-card-img__title w-600 js-s">Телеграмм</span>
+                        </div>
+                        <div class="tutorial-card__item grid grid-column gap-25">
+                            <span class="tutorial__title_2 h3 w-600">AI боты в телеграмм</span>
+                            <div class="tutorial-card__box grid gap-10">
+                                <span class="tutorial-card-box__title color-grey-dark">Telegramm</span>
+                                <p class="tutorial-card-box__text color-grey-dark grid grid-column ji-s ac-s gap-25">
+                                    Существует множество бесплатных решений в такой социальной сети,
+                                    как телеграмм. Но, как правило, чтобы получить неограниченное количество
+                                    запросов, необходимо заплатить
+                                    <a href="https://t.me/GPT4Telegrambot" target="_blank" class="tutorial-card__btn btn btn-transparent">Подробнее</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="500" class="tutorial__card grid gap-25">
+                        <div class="tutorial-card__item grid grid-column gap-10 ac-s ji-s">
+                            <span class="tutorial__number h5 ta-c grid grid-row jc-c ai-c">2</span>
+                            <span class="h3 tutorial__title w-600">Официальное решение</span>
+                        </div>
+                        <div class="tutorial-card__item tutorial-card__item_img grid grid-row gap-10 ai-c ji-c">
+                            <img src="img/icons/openai.png" alt="OpenAI" class="tutorial-card__img">
+                            <span class="h2 tutorial-card-img__title w-600 js-s">Open AI</span>
+                        </div>
+                        <div class="tutorial-card__item grid grid-column gap-25">
+                            <span class="tutorial__title_2 h3 w-600">Зарубежные сервисы</span>
+                            <div class="tutorial-card__box grid gap-10">
+                                <span class="tutorial-card-box__title color-grey-dark">Open AI</span>
+                                <p class="tutorial-card-box__text color-grey-dark grid grid-column ji-s ac-s gap-25">
+                                    Существует множество бесплатных решений в такой социальной сети,
+                                    как телеграмм. Но, как правило, чтобы получить неограниченное количество
+                                    запросов, необходимо заплатить
+                                    <a href="https://openai.com" target="_blank" class="tutorial-card__btn btn btn-transparent">Подробнее</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="500" class="tutorial__card grid gap-25">
+                        <div class="tutorial-card__item grid grid-column gap-10 ac-s ji-s">
+                            <span class="tutorial__number h5 ta-c grid grid-row jc-c ai-c">3</span>
+                            <span class="h3 tutorial__title w-600">Бесплатные русские аналоги</span>
+                        </div>
+                        <div class="tutorial-card__item tutorial-card__item_img grid-row grid gap-10 ai-c ji-c">
+                            <img src="img/icons/gigachat.png" alt="GigaChat" class="tutorial-card__img">
+                            <span class="h2 tutorial-card-img__title w-600 js-s">GigaChat</span>
+                        </div>
+                        <div class="tutorial-card__item grid grid-column gap-25">
+                            <span class="tutorial__title_2 h3 w-600">Русские AI сервисы</span>
+                            <div class="tutorial-card__box grid gap-10">
+                                <span class="tutorial-card-box__title color-grey-dark">GigaChat</span>
+                                <p class="tutorial-card-box__text color-grey-dark grid grid-column ji-s ac-s gap-25">
+                                    Существует множество бесплатных решений в такой социальной сети,
+                                    как телеграмм. Но, как правило, чтобы получить неограниченное количество
+                                    запросов, необходимо заплатить
+                                    <a href="https://giga.chat/" target="_blank" class="tutorial-card__btn btn btn-transparent">Подробнее</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--    FAQ    -->
+        <section id="faq" class="section faq__section">
+            <div class="container faq__container gap-100">
+                <div class="faq__inner grid grid-column gap-10 ac-s ji-s width-100">
+                    <h2 class="h1 text-gradient-grey faq__title w-700">Ответы на ваши вопросы</h2>
+                    <p class="color-grey h6 w-200 faq__text mb-25">
+                        Заинтересовались темой искусственного интеллекта? Переходите по ссылке и погружайтесь в тему
+                        ИИ в статье Яндекс
+                    </p>
+                    <a href="https://practicum.yandex.ru/blog/chto-takoe-iskusstvennyi-intellekt/" target="_blank" class="btn btn-main faq__btn">
+                        Подробнее
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 3L17.0012 12.0021L7 21.0042" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="faq__inner faq__inner_accordion grid grid-column ac-s ji-s width-100">
+                    <div class="faq__accordion width-100">
+                        <div class="faq-accordion__head grid grid-row jc-sb ai-c width-100">
+                            <h3 class="h3 faq-accordion__title w-600">Заголовок</h3>
+                            <div class="faq-accordion__icon"></div>
+                        </div>
+                        <div class="faq-accordion__content">
+                            текст
+                        </div>
+                    </div>
+                    <div class="faq__accordion width-100">
+                        <div class="faq-accordion__head grid grid-row jc-sb ai-c width-100">
+                            <h3 class="h3 faq-accordion__title w-600">Заголовок</h3>
+                            <div class="faq-accordion__icon"></div>
+                        </div>
+                        <div class="faq-accordion__content">
+                            текст
+                        </div>
+                    </div>
+                    <div class="faq__accordion width-100">
+                        <div class="faq-accordion__head grid grid-row jc-sb ai-c width-100">
+                            <h3 class="h3 faq-accordion__title w-600">Заголовок</h3>
+                            <div class="faq-accordion__icon"></div>
+                        </div>
+                        <div class="faq-accordion__content">
+                            текст
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--    ChatGPT Window    -->
+        <section class="section gpt__section">
+            <div class="container gpt__container ac-sb">
+                <div class="gpt__close"><img src="img/icons/swiper_larr.svg" alt="Arrow"></div>
+                <h2 class="h1 gpt__title w-700 ta-c">ChatGPT</h2>
+                <div class="gpt__inner grid grid-column gap-25 ac-e ji-s width-100">
+                    <div class="gpt__chat grid grid-column gap-25 width-100">
+                        <div class="gpt__message gpt__message_bot grid grid-row jc-s js-s ai-c">
+                            <img src="img/icons/gigachat.png" alt="GPT">
+                            <p class="gpt-message__inner h7 w-200">
+                                Привет! Я - ChatGPT! Задавай мне любой вопрос, и я отвечу на него!
+                            </p>
+                        </div>
+                    </div>
+                    <span class="gpt__error color-red ta-c h7 w-200 width-100">Ошибка</span>
+                    <form class="gpt__form grid width-100 jc-sb">
+                        <label for="gpt_input" style="display: none"></label>
+                        <input class="gpt__input input width-100" placeholder="Введите запрос" type="text" id="gpt_input">
+                        <button type="submit" class="btn btn-main gpt__send">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!--  Footer  -->

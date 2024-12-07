@@ -50,9 +50,7 @@ app.post("/api/gpt", function(req, res){
                         "model": "GigaChat",
                         "stream": false,
                         "update_interval": 0,
-                        "messages": [
-                            history
-                        ]
+                        "messages": history
                     }),
                     agent: httpsAgent,
                 }).then(fetch_result_not_json2 => {
@@ -79,9 +77,7 @@ app.post("/api/gpt", function(req, res){
                 "model": "GigaChat",
                 "stream": false,
                 "update_interval": 0,
-                "messages": [
-                    history
-                ]
+                "messages": history
             }),
             agent: httpsAgent,
         }).then(fetch_result_not_json2 => {
@@ -105,4 +101,4 @@ app.get('/*', (req, res) => {
 });
 
 // Listen App
-app.listen(80);
+app.listen(8000);
